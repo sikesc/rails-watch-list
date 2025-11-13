@@ -1,0 +1,31 @@
+.banner {
+  background-image: asset-url('projector.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+
+  h1{
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 20px;
+    color: white;
+    opacity: .7;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+
+  .banner-button {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.btn.btn-warning {
+  box-shadow: 4px 4px 6px rgba(0,0,0,0.2);
+  border-radius: 20px;
+}

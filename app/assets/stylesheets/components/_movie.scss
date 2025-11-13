@@ -1,0 +1,75 @@
+.movie-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin-top: 16px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .movie-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .movie-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .movie-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .movie-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .movie-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.poster {
+  border-style: solid;
+  border-color: rgba(34, 34, 34, 0.5);
+  box-shadow: 4px 4px 6px rgba(0,0,0,0.2);
+  width: 100%;
+}
+
+.poster img {
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.movie-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding-left: 8px;
+  padding-right: 8px;
+
+  p {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+}
+
+.overview {
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+}

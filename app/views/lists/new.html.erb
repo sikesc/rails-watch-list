@@ -1,0 +1,18 @@
+<div class="banner">
+  <div class="container mb-3">
+    <h1>My Movies</h1>
+    <p>save, list, share, your movies, one location</p>
+    <div class="banner-button">
+      <%= link_to "Home", lists_path, class: "btn btn-warning" %>
+    </div>
+  </div>
+</div>
+<div class="container container-form p-3 mt-2">
+  <h1>Create a new List</h1>
+  <%= simple_form_for @list do |f| %>
+    <%= f.input :name %>
+    <div class="d-grid gap-2">
+      <%= f.submit 'Add', class: 'btn btn-success mt-3' %>
+    </div>
+  <% end %>
+</div>
