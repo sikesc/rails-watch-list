@@ -1,6 +1,6 @@
 .movie-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
   margin-top: 16px;
 }
@@ -22,21 +22,21 @@
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .movie-cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .movie-cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .movie-cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -45,6 +45,8 @@
   border-color: rgba(34, 34, 34, 0.5);
   box-shadow: 4px 4px 6px rgba(0,0,0,0.2);
   width: 100%;
+  height: 600px;
+  overflow: auto;
 }
 
 .poster img {
@@ -69,7 +71,7 @@
 .overview {
   padding-left: 8px;
   padding-right: 8px;
-  height: 90px;
+  overflow: auto;
   display: flex;
   justify-content: space-between;
 }

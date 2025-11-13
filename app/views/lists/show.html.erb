@@ -4,7 +4,7 @@
 <div class="container">
   <div class="new-bookmark d-flex justify-content-between mt-2">
     <%= link_to "Home", lists_path, class: "btn btn-warning" %>
-    <%= link_to "Bookmark a Movie", new_list_bookmark_path(@list), class: "btn btn-warning" %>
+    <%= link_to "Add a Movie", new_list_bookmark_path(@list), class: "btn btn-warning" %>
   </div>
   <div class="movie-cards">
     <% @list.bookmarks.each do |bookmark| %>
@@ -13,7 +13,7 @@
           <%= image_tag bookmark.movie.poster_url, alt: "#{bookmark.movie.title} Poster" %>
           <div class="movie-info">
             <p><%= bookmark.movie.title %></p>
-            <p><%= bookmark.movie.rating %></p>
+            <p>⭐ <%= bookmark.movie.rating %></p>
           </div>
           <div class="overview">
             <p><%= bookmark.movie.overview %></p>
