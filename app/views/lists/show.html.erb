@@ -4,7 +4,9 @@
 <div class="container">
   <div class="new-bookmark d-flex justify-content-end mt-2 gap-2 align-items-center">
     <%= link_to "Home", lists_path, class: "btn btn-warning" %>
-    <%= link_to "Add a Movie", new_list_bookmark_path(@list), class: "btn btn-warning" %>
+    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Add a Movie
+    </button>
     <%= link_to "Delete this List", list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-warning" %>
   </div>
   <div class="movie-cards mb-3">
@@ -28,5 +30,25 @@
         </div>
       </div>
     <% end %>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Create a new List</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [@list, @bookmark] do |f| %>
+          <%= f.association :movie %>
+          <%= f.input :comment %>
+          <div class="d-grid gap-2">
+            <%= f.submit 'Add', class: 'btn btn-success mt-3' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
