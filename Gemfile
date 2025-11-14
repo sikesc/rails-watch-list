@@ -70,3 +70,5 @@ gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form"
 gem "sassc-rails"
+gem 'dotenv-rails'
+gem 'cloudinary', '~> 1.16.0'
