@@ -41,13 +41,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for [@list, @bookmark] do |f| %>
-          <%= f.association :movie %>
-          <%= f.input :comment %>
-          <div class="d-grid gap-2">
-            <%= f.submit 'Add', class: 'btn btn-success mt-3' %>
-          </div>
-        <% end %>
+        <turbo-frame id="bookmark_form">
+          <%= render "bookmarks/form", list: @list, bookmark: @bookmark %>
+        </turbo-frame>
       </div>
     </div>
   </div>

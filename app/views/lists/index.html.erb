@@ -29,13 +29,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for @list do |f| %>
-          <%= f.input :name %>
-          <%= f.input :photo, as: :file %>
-          <div class="d-grid gap-2">
-            <%= f.submit 'Add', class: 'btn btn-success mt-3' %>
-          </div>
-        <% end %>
+        <turbo-frame id="new_list_modal">
+          <%= render "lists/form", list: @list %>
+        </turbo-frame>
       </div>
     </div>
   </div>

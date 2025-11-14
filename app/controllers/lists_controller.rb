@@ -24,7 +24,20 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to lists_path
     else
-      render :new, status: :unprocessable_entity
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace(
+            "new_list_modal",
+            partial: "lists/form",
+            locals: { list: @list }
+          ), status: :unprocessable_entity
+        end
+
+        format.html do
+          @lists = List.all
+          render "home/index", status: :unprocessable_entity
+        end
+      end
     end
 
   end

@@ -1,0 +1,7 @@
+<%= simple_form_for list do |f| %>
+  <%= f.input :name %>
+  <%= f.input :photo, as: :file %>
+  <div class="d-grid gap-2">
+    <%= f.submit 'Add', class: 'btn btn-success mt-3' %>
+  </div>
+<% end %>

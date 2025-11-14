@@ -1,0 +1,7 @@
+ <%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.association :movie %>
+  <%= f.input :comment %>
+  <div class="d-grid gap-2">
+    <%= f.submit 'Add', class: 'btn btn-success mt-3' %>
+  </div>
+<% end %>
