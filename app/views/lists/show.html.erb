@@ -9,26 +9,9 @@
     </button>
     <%= link_to "Delete this List", list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-warning" %>
   </div>
-  <div class="movie-cards mb-3">
+  <div id="bookmarks" class="movie-cards mb-3">
     <% @list.bookmarks.each do |bookmark| %>
-      <div class="movie-card">
-        <div class="poster">
-          <%= image_tag bookmark.movie.poster_url, alt: "#{bookmark.movie.title} Poster" %>
-          <div class="movie-info">
-            <p><%= bookmark.movie.title %></p>
-            <p>⭐ <%= bookmark.movie.rating %></p>
-          </div>
-          <div class="overview">
-            <p><%= bookmark.movie.overview %></p>
-            <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-              <i class="fa-solid fa-trash-can"></i>
-            <% end %>
-          </div>
-          <div class="comment">
-            <p>--<%= bookmark.comment %></p>
-          </div>
-        </div>
-      </div>
+      <%= render "bookmarks/bookmark", bookmark: bookmark %>
     <% end %>
   </div>
 </div>

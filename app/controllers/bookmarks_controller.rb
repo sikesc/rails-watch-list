@@ -9,6 +9,7 @@ class BookmarksController < ApplicationController
     @list = @bookmark.list
     @bookmark.destroy
     redirect_to list_path(@list)
+
   end
 
   def create
@@ -16,7 +17,24 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.list = @list
     if @bookmark.save
-      redirect_to list_path(@list)
+      # redirect_to list_path(@list)
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.append(
+            "bookmarks",
+            partial: "bookmarks/bookmark",
+            locals: { bookmark: @bookmark }
+          ),
+            turbo_stream.replace(
+            "bookmark_form",
+            partial: "bookmarks/form",
+            locals: { list: @list, bookmark: Bookmark.new }
+          )
+        ]
+        end
+        format.html { redirect_to list_path(@list) }
+      end
     else
       respond_to do |format|
         format.turbo_stream do

@@ -22,7 +22,15 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to lists_path
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.append("lists", partial: "lists/list", locals: { list: @list }),
+            turbo_stream.remove("new_list_modal") # closes modal
+          ]
+        end
+      format.html { redirect_to lists_path }
+      end
     else
       respond_to do |format|
         format.turbo_stream do
